@@ -1,0 +1,28 @@
+<div *ngIf="showData">
+    <div class="city-name">{{weatherList[0].name}}</div>
+    <div class="weather-container">
+        <div class="weather-icon" *ngIf="weatherList[0].weather[0].main == 'Clouds'">
+            <img class='main-img' src="../../../assets/animated/cloudy-day-1.svg">
+        </div>
+        <div class="weather-icon" *ngIf="weatherList[0].weather[0].main == 'Rain'">
+            <img class='main-img' src="../../../assets/animated/rainy-1.svg">
+        </div>
+        <div class="weather-icon" *ngIf="weatherList[0].weather[0].main == 'Clear'">
+            <img class='main-img' src="../../../assets/animated/day.svg">
+        </div>
+        <div class="weather-data">
+            <div class="weather-reading">Temp: {{weatherList[0].main.temp}}</div>
+            <div class="weather-reading">Weather: {{weatherList[0].weather[0].main}}</div>
+            <div class="weather-reading">Wind: {{weatherList[0].wind.speed}}</div>
+            <div class="weather-reading">Pressure: {{weatherList[0].main.pressure}}</div>
+        </div>
+    </div>
+    <div class="forecast">
+        <div *ngFor="let item of forecastArray[0].list; let i=$index;">
+            <img *ngIf="item.weather[0].main == 'Clouds'" src="../../../assets/animated/cloudy-day-1.svg">
+            <img *ngIf="item.weather[0].main == 'Rain'" src="../../../assets/animated/rainy-1.svg">
+            <img *ngIf="item.weather[0].main == 'Clear'" src="../../../assets/animated/day.svg">
+            <div class="forecast-deg">{{item.deg}}</div>
+        </div>
+    </div>
+</div>
